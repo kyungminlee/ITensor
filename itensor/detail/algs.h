@@ -17,7 +17,11 @@
 #define __ITENSOR_ALGS_H
 
 #include <sys/types.h>
+#if defined(_WIN32)
+#include <process.h>
+#else
 #include <unistd.h>
+#endif
 #include <algorithm>
 #include <ctime>
 #include <stdexcept>

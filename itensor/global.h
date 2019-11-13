@@ -21,7 +21,11 @@
 #include <cstring>
 #include <memory>
 #include <random>
+#if defined(_WIN32)
+#include <process.h>
+#else
 #include <unistd.h>
+#endif
 #include <memory>
 #include "itensor/util/iterate.h"
 #include "itensor/util/error.h"
