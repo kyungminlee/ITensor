@@ -645,7 +645,7 @@ template<typename Task>
 auto
 doTask(Task&& t,
        CPData arg)
-    -> typename detail::RegisterTask<detail::OneArg<CPData>,decltype(t),DoTaskReturn<Task,StorageTypes>>::return_type
+    //-> typename detail::RegisterTask<detail::OneArg<CPData>,decltype(t),DoTaskReturn<Task,StorageTypes>>::return_type
     {
 #ifdef DEBUG
     detail::check(arg);
@@ -661,7 +661,7 @@ template<typename Task>
 auto
 doTask(Task&& t,
        PData& arg)
-    -> typename detail::RegisterTask<detail::OneArg<PData>,decltype(t),DoTaskReturn<Task,StorageTypes>>::return_type
+    //-> typename detail::RegisterTask<detail::OneArg<PData>,decltype(t),DoTaskReturn<Task,StorageTypes>>::return_type
     {
 #ifdef DEBUG
     detail::check(arg);
@@ -678,7 +678,7 @@ auto
 doTask(Task&& t,
        CPData arg1,
        CPData arg2)
-    -> typename detail::RegisterTask<detail::TwoArgs<CPData,CPData>,decltype(t),DoTaskReturn<Task,StorageTypes>>::return_type
+    //-> typename detail::RegisterTask<detail::TwoArgs<CPData,CPData>,decltype(t),DoTaskReturn<Task,StorageTypes>>::return_type
     {
 #ifdef DEBUG
     detail::check(arg1);
@@ -696,7 +696,7 @@ auto
 doTask(Task&& t,
        PData& arg1,
        CPData arg2)
-    -> typename detail::RegisterTask<detail::TwoArgs<PData,CPData>,decltype(t),DoTaskReturn<Task,StorageTypes>>::return_type
+    //-> typename detail::RegisterTask<detail::TwoArgs<PData,CPData>,decltype(t),DoTaskReturn<Task,StorageTypes>>::return_type
     {
 #ifdef DEBUG
     detail::check(arg1);

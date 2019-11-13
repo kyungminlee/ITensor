@@ -71,7 +71,7 @@ struct TestRet
         : t(t_), s(s_), m(m_) 
         { }
     auto
-    operator()() -> decltype(testRetImpl(stdx::select_overload{},t,s,m))
+    operator()() //-> decltype(testRetImpl(stdx::select_overload{},t,s,m))
         {
         return testRetImpl(stdx::select_overload{},t,s,m);
         }
