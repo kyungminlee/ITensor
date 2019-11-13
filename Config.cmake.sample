@@ -1,0 +1,20 @@
+set(PLATFORM "mkl")
+set(INTEL_ROOT "C:\\Program Files (x86)\\IntelSWTools\\compilers_and_libraries\\windows")
+set(LAPACK_INCLUDE_DIR "${INTEL_ROOT}\\mkl\\include")
+set(MKL_LIBNAMES mkl_intel_lp64.lib mkl_intel_thread.lib mkl_core libiomp5md) # Static iomp
+foreach(LIBNAME ${MKL_LIBNAMES}) 
+    unset(LIB CACHE)
+    find_library(LIB NAMES "${LIBNAME}"
+                 PATHS
+                    "${INTEL_ROOT}\\tbb"
+                    "${INTEL_ROOT}\\mkl"
+                    "${INTEL_ROOT}\\compiler"
+                 PATH_SUFFIXES
+                    "lib"
+                    "lib\\intel64"
+                    "lib\\intel64\\vc14"
+                 )
+    list(APPEND LAPACK_LIBRARIES "${LIB}")
+endforeach(LIBNAME)
+
+add_compile_options("/wd4101" "/wd4244" "/wd4267" "/wd4996")
